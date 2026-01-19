@@ -1,0 +1,143 @@
+/* إعدادات عامة */
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --text-color: #fff;
+    --green-debt: #4caf50;
+    --red-payment: #ff5252;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); /* خلفية داكنة لإبراز الزجاج */
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* تصميم الزجاج Glassmorphism */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px); /* التغبيش */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+h1, h3 {
+    margin: 0 0 15px 0;
+    font-weight: 700;
+}
+
+.text-center { text-align: center; }
+.hidden { display: none; }
+
+/* حقول الإدخال */
+.form-group {
+    margin-bottom: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    color: #fff;
+    font-family: inherit;
+    box-sizing: border-box; /* لمنع تجاوز الحواف */
+}
+
+input::placeholder { color: rgba(255, 255, 255, 0.6); }
+input:focus, select:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #fff;
+}
+
+/* الأزرار */
+.btn-glass {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid var(--glass-border);
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-glass:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.btn-secondary {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* تنسيق البحث */
+.search-box {
+    display: flex;
+    gap: 10px;
+}
+
+/* الجداول */
+.table-responsive {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: right;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th {
+    background: rgba(0, 0, 0, 0.2);
+    color: #ddd;
+}
+
+/* الألوان الدلالية */
+.text-green { color: var(--green-debt); font-weight: bold; }
+.text-red { color: var(--red-payment); font-weight: bold; }
+.text-neutral { color: #ddd; }
+
+/* بطاقة الرصيد */
+.customer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.balance-card {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: 1px solid var(--green-debt);
+}
+
+/* جعل التصميم متجاوب */
+@media (max-width: 600px) {
+    .search-box { flex-direction: column; }
+    .customer-header { flex-direction: column; text-align: center; gap: 10px;}
+}
+

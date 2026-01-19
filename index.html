@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام سجل الديون الزجاجي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <header class="glass-panel text-center">
+            <h1><i class="fas fa-file-invoice-dollar"></i> سجل الديون الذكي</h1>
+        </header>
+
+        <section class="glass-panel input-section">
+            <h3><i class="fas fa-plus-circle"></i> إضافة عملية جديدة</h3>
+            <form id="transactionForm">
+                <div class="form-group">
+                    <input type="text" id="customerName" placeholder="اسم الزبون" required>
+                </div>
+                <div class="form-group">
+                    <select id="transType" required>
+                        <option value="debt">إضافة دين (عليه)</option>
+                        <option value="payment">تسديد (منه)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="amount" placeholder="المبلغ" min="1" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <input type="date" id="transDate" required>
+                </div>
+                <button type="submit" class="btn-glass">حفظ العملية</button>
+            </form>
+        </section>
+
+        <section class="glass-panel search-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="ابحث باسم الزبون لعرض كشف الحساب...">
+                <button onclick="searchCustomer()" class="btn-glass"><i class="fas fa-search"></i> بحث</button>
+                <button onclick="showGeneralLedger()" class="btn-glass btn-secondary"><i class="fas fa-list"></i> عرض الكل</button>
+            </div>
+        </section>
+
+        <section id="generalLedgerSection" class="glass-panel table-section">
+            <h3><i class="fas fa-history"></i> السجل العام (أحدث العمليات)</h3>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>التاريخ</th>
+                            <th>الزبون</th>
+                            <th>النوع</th>
+                            <th>المبلغ</th>
+                            <th>حالة الرصيد</th>
+                        </tr>
+                    </thead>
+                    <tbody id="generalTableBody">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="customerStatementSection" class="glass-panel table-section hidden">
+            <div class="customer-header">
+                <h3><i class="fas fa-user"></i> كشف حساب: <span id="statementCustomerName">---</span></h3>
+                <div class="balance-card">
+                    <span>الرصيد الحالي النهائي:</span>
+                    <span id="finalBalanceDisplay">0.00</span>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>التاريخ</th>
+                            <th>نوع العملية</th>
+                            <th>دائن (تسديد)</th>
+                            <th>مدين (دين)</th>
+                            <th>الرصيد التراكمي</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customerTableBody">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
